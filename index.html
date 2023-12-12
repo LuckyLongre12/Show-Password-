@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password By Lucky</title>
+   <!--  <script src="https://kit.fontawesome.com/22cfd4c9fb.js" crossorigin="anonymous"></script> -->
+   <link rel="stylesheet"
+href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+
+</head>
+<style>
+    body {
+        background: black;
+    }
+    #check2{
+        display: none;
+    }
+    ::placeholder{
+        font-size: 4rempx;
+        color: red;
+    }
+    input{
+        font-size: 5rem;
+        text-align: center;
+        outline: none;
+        border-radius: 60px;
+        margin-left: 3rem;
+        margin-top: 30rem;
+        height: auto;
+    }
+    button{
+        margin-right: 5px;
+        font-size: 4rem;
+        background-color: white;
+        outline: none;
+        border-width: 2px;
+        border-radius: 30px;
+        margin-left: 2rem;
+        width: 15rem;
+        display: none;
+    }
+    span{
+        font-size: 5rem;
+        display: none;
+        position: absolute;
+        right: 7rem;
+        top: 31rem;
+    }
+    #sub{
+        display: block;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+    }
+    #home{
+        font-size: 7rem;
+        color: red;
+        display: none;
+        text-align: center;
+        margin-top: 40rem;
+    }
+    .fa-regular{
+        color: white;
+    }
+    
+</style>
+<body>
+    <input type="password" placeholder="Enter Password" id="password">
+         <span id="span">
+   <i class="fa-solid fa-xmark"></i>
+         </span>
+                <br><br>
+  <div>
+    <button id="check">
+        <i class="fa-solid fa-eye-slash"></i>
+    </button>
+    <button id="check2">
+        <i class="fa-solid fa-eye"></i>
+    </button>
+    <button id="sub">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </button>
+  </div>
+     <h1 id="home">
+         Submitted<br>Go To Home <i class="fa-regular fa-house-person-return"></i>
+     </h1>
+</body>
+<script>
+    const InputValue = document.getElementById('password');
+    const CheckBox = document.getElementById('check');
+    const CheckBox2 = document.getElementById('check2');
+    const CloseBtn = document.getElementById('span');
+    const SubBtn = document.getElementById('sub');
+    const HomeTxt = document.getElementById('home');    
+    
+    
+    
+  InputValue.addEventListener('input',function(){        
+        if (!InputValue.value) {
+        CheckBox.style.display = 'none';
+        CheckBox2.style.display = 'none';
+        CloseBtn.style.display = 'none';
+        }
+        if (InputValue.value=='') {
+            
+        }
+        else{
+        CheckBox.style.display = 'block';
+        CheckBox2.style.display = 'none';
+        CloseBtn.style.display = 'block';
+        }
+    });
+   CheckBox.addEventListener('click', function(){
+       InputValue.type =  'text'
+       CheckBox.style.display = 'none';
+       CheckBox2.style.display = 'block';
+    });
+  CheckBox2.addEventListener('click', function(){
+      InputValue.type =  'password';
+      CheckBox.style.display = 'block';
+      CheckBox2.style.display = 'none';
+    });
+   CloseBtn.addEventListener('click',function(){
+       InputValue.value =null;
+       CheckBox.style.display = 'none';
+       CheckBox2.style.display = 'none';
+       CloseBtn.style.display = 'none';
+       InputValue.type =  'password';
+   });
+   SubBtn.addEventListener('click',function(){
+       if (!InputValue.value) {
+           alert("Please Enter Your Password")
+       }
+       else {
+           SubBtn.style.display = "none";
+           InputValue.style.display ="none";
+           CheckBox.style.display = 'none';
+           CheckBox2.style.display = 'none';
+           CloseBtn.style.display = 'none';
+           HomeTxt.style.display = "block";
+           CheckBox.style.display = 'none';
+       }
+   });
+   HomeTxt.addEventListener('click',function(){
+       InputValue.style.display ="block";
+       SubBtn.innerHTML = "Submit";
+       InputValue.value =null;
+       HomeTxt.style.display = "none";
+       CheckBox.style.display = 'none';
+       SubBtn.style.display = "block";
+       InputValue.type =  'password';
+   });
+    
+</script>
+</html>
